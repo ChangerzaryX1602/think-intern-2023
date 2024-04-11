@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"strconv"
 	"strings"
 	"think-intern-2023/logs"
@@ -44,36 +45,65 @@ func main() {
 func primeOrder(c *fiber.Ctx) error {
 	order := c.Params("order")
 	orderInt, err := strconv.Atoi(order)
-	if err != nil {
+	if err != nil || orderInt <= 0 {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
-			"error": err.Error(),
+			"error": "Invalid order parameter. Must be a positive integer.",
 		})
-
 	}
 
-	primeNum := 0
-	count := 0
-	i := 2
-	for count < orderInt {
-		if isPrime(i) {
-			count++
-			primeNum = i
-		}
-		i++
+	// Estimate the upper bound using the prime number theorem
+	upperBound := int(float64(orderInt) * (math.Log(float64(orderInt)) + math.Log(math.Log(float64(orderInt)))))
+	if upperBound < 2 {
+		upperBound = 2
 	}
 
-	return c.JSON(fiber.Map{"prime_number": primeNum, "order": orderInt})
+	// Generate primes up to the upper bound
+	primes := generatePrimes(upperBound)
+
+	// If the list of primes does not contain enough primes, extend the list
+	if len(primes) < orderInt {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"error": "Failed to generate enough primes",
+		})
+	}
+
+	// Retrieve the `order`-th prime number
+	primeNum := primes[orderInt-1]
+
+	// Return the prime number in the response
+	return c.JSON(fiber.Map{
+		"order":        orderInt,
+		"prime_number": primeNum,
+	})
 }
-func isPrime(num int) bool {
-	if num <= 1 {
-		return false
+
+// Generate primes up to the specified upper bound using the Sieve of Eratosthenes
+func generatePrimes(upperBound int) []int {
+	// Create a boolean array for the sieve
+	isPrime := make([]bool, upperBound+1)
+	for i := range isPrime {
+		isPrime[i] = true
 	}
-	for i := 2; i*i <= num; i++ {
-		if num%i == 0 {
-			return false
+	isPrime[0], isPrime[1] = false, false // 0 and 1 are not prime
+
+	// Sieve of Eratosthenes
+	for i := 2; i*i <= upperBound; i++ {
+		if isPrime[i] {
+			for j := i * i; j <= upperBound; j += i {
+				isPrime[j] = false
+			}
 		}
 	}
-	return true
+
+	// Collect the primes
+	primes := make([]int, 0)
+	for i := 2; i <= upperBound; i++ {
+		if isPrime[i] {
+			primes = append(primes, i)
+		}
+	}
+
+	return primes
 }
 func fiberConfig(app *fiber.App) {
 	app.Use(cors.New(cors.Config{
