@@ -1,0 +1,18 @@
+{"level":"error","timestamp":"2024-04-08T21:06:32.795+0700","caller":"internal/database.go:42","msg":"failed to connect to `host=postgres user=postgres database=postgres`: hostname resolving error (lookup postgres: no such host)"}
+{"level":"info","timestamp":"2024-04-08T21:10:41.256+0700","caller":"entity/jwt_middleware.go:39","msg":"User chatchanan.pa@kkumail.com has been authenticated by Method: POST, URL: /api/v1/authorized/challenge/, IP: 127.0.0.1"}
+{"level":"info","timestamp":"2024-04-08T21:10:41.266+0700","caller":"challenges/challenge_handler.go:45","msg":"Test has been created by chatchanan.pa@kkumail.com"}
+{"level":"info","timestamp":"2024-04-08T21:10:44.213+0700","caller":"entity/jwt_middleware.go:39","msg":"User chatchanan.pa@kkumail.com has been authenticated by Method: GET, URL: /api/v1/authorized/challenge/, IP: 127.0.0.1"}
+{"level":"info","timestamp":"2024-04-08T21:10:44.223+0700","caller":"challenges/challenge_handler.go:66","msg":"User chatchanan.pa@kkumail.com has been get all challenges"}
+{"level":"info","timestamp":"2024-04-08T21:10:50.496+0700","caller":"entity/jwt_middleware.go:39","msg":"User chatchanan.pa@kkumail.com has been authenticated by Method: DELETE, URL: /api/v1/authorized/challenge/2, IP: 127.0.0.1"}
+{"level":"info","timestamp":"2024-04-08T21:10:50.517+0700","caller":"challenges/challenge_handler.go:94","msg":"User chatchanan.pa@kkumail.com has been deleted challenge ID: 2"}
+{"level":"info","timestamp":"2024-04-08T21:10:54.198+0700","caller":"entity/jwt_middleware.go:39","msg":"User chatchanan.pa@kkumail.com has been authenticated by Method: PUT, URL: /api/v1/authorized/challenge/2, IP: 127.0.0.1"}
+{"level":"info","timestamp":"2024-04-08T21:10:59.221+0700","caller":"entity/jwt_middleware.go:39","msg":"User chatchanan.pa@kkumail.com has been authenticated by Method: PUT, URL: /api/v1/authorized/challenge/3, IP: 127.0.0.1"}
+{"level":"info","timestamp":"2024-04-08T21:10:59.239+0700","caller":"challenges/challenge_handler.go:130","msg":"User chatchanan.pa@kkumail.com has been updated challenge ID: 3"}
+{"level":"info","timestamp":"2024-04-08T21:13:48.358+0700","caller":"entity/jwt_middleware.go:39","msg":"User chatchanan.pa@kkumail.com has been authenticated by Method: POST, URL: /api/v1/authorized/challenge/, IP: 127.0.0.1"}
+{"level":"info","timestamp":"2024-04-08T21:13:48.366+0700","caller":"challenges/challenge_handler.go:45","msg":"Test has been created by chatchanan.pa@kkumail.com"}
+{"level":"info","timestamp":"2024-04-08T21:13:56.346+0700","caller":"entity/jwt_middleware.go:39","msg":"User chatchanan.pa@kkumail.com has been authenticated by Method: GET, URL: /api/v1/authorized/challenge/, IP: 127.0.0.1"}
+{"level":"info","timestamp":"2024-04-08T21:13:56.354+0700","caller":"challenges/challenge_handler.go:66","msg":"User chatchanan.pa@kkumail.com has been get all challenges"}
+{"level":"info","timestamp":"2024-04-08T21:14:11.311+0700","caller":"entity/jwt_middleware.go:39","msg":"User chatchanan.pa@kkumail.com has been authenticated by Method: DELETE, URL: /api/v1/authorized/challenge/4, IP: 127.0.0.1"}
+{"level":"info","timestamp":"2024-04-08T21:14:11.327+0700","caller":"challenges/challenge_handler.go:94","msg":"User chatchanan.pa@kkumail.com has been deleted challenge ID: 4"}
+{"level":"info","timestamp":"2024-04-08T21:14:23.150+0700","caller":"entity/jwt_middleware.go:39","msg":"User chatchanan.pa@kkumail.com has been authenticated by Method: PUT, URL: /api/v1/authorized/challenge/3, IP: 127.0.0.1"}
+{"level":"info","timestamp":"2024-04-08T21:14:23.167+0700","caller":"challenges/challenge_handler.go:130","msg":"User chatchanan.pa@kkumail.com has been updated challenge ID: 3"}

@@ -1,0 +1,1 @@
+{"level":"error","timestamp":"2024-03-29T10:57:01.359+0700","caller":"internal/database.go:42","msg":"failed to connect to `host=postgres user=postgres database=postgres`: hostname resolving error (lookup postgres: no such host)"}
